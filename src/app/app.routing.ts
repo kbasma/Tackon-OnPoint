@@ -27,6 +27,13 @@ export const AppRoutes: Routes = [
       title: 'Register Page'
     }
   },
+  // {
+  //   path: 'reset-password',
+  //   component: ForgotPasswordComponent,
+  //   data: {
+  //     title: 'Forgot Page'
+  //   }
+  // },
   {
     path: '',
     component: TextLayoutComponent,

@@ -1,0 +1,13 @@
+@mixin scroll-styles($scroll-color, $scroll-states-color) {
+  @if $scroll-color == $default-color {
+
+  }
+
+  @if $scroll-color == $primary-color {
+
+  }
+
+  @if $scroll-color == $secondary-color {
+
+  }
+}

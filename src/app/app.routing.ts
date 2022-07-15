@@ -6,6 +6,7 @@ import {RegisterComponent} from "./shared/register/register.component";
 import {P500Component} from "./shared/error/500.component";
 import {P403Component} from "./shared/error/403.component";
 import {LoginComponent} from "./shared/login/login.component";
+import {IdentityVerifyComponent} from "./shared/identity-verify/identity-verify.component";
 
 export const AppRoutes: Routes = [
   {
@@ -25,6 +26,13 @@ export const AppRoutes: Routes = [
     component: LoginComponent,
     data: {
       title: 'Register Page'
+    }
+  },
+  {
+    path: 'verify',
+    component: IdentityVerifyComponent,
+    data: {
+      title: 'Verify Page'
     }
   },
   // {

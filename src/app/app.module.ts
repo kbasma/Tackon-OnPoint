@@ -17,6 +17,10 @@ import {LoginComponent} from "./shared/login/login.component";
 import {P500Component} from "./shared/error/500.component";
 import {P403Component} from "./shared/error/403.component";
 import {P404Component} from "./shared/error/404.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {TermsConditionsComponent} from "./shared/terms-conditons/terms-conditions.component";
+import {ScrollTrackerDirective} from "./core/directives/scroll-tracker.directives";
+import { IdentityVerifyComponent } from './shared/identity-verify/identity-verify.component';
 
 
 @NgModule({
@@ -25,15 +29,20 @@ import {P404Component} from "./shared/error/404.component";
     TextLayoutComponent,
     RegisterComponent,
     LoginComponent,
+    TermsConditionsComponent,
     P404Component,
     P403Component,
-    P500Component
+    P500Component,
+    ScrollTrackerDirective,
+    IdentityVerifyComponent
   ],
   imports: [
     BrowserAnimationsModule,
     RouterModule.forRoot(AppRoutes,{
       useHash: true
     }),
+    FormsModule,
+    ReactiveFormsModule,
     SidebarModule,
     NavbarModule,
     ToastrModule.forRoot(),

@@ -1,0 +1,30 @@
+.scroll-bar {
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    border-radius: 3px;
+    box-shadow: inset 0 0 10px 10px transparent;
+    border: solid 3px transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 3px;
+    box-shadow: inset 0 0 10px 10px $default-color;
+    border: solid 3px transparent;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    box-shadow: inset 0 0 10px 10px $primary-color;
+  }
+}
+
+.scroll-bar-default { @include scroll-styles($default-color, $default-states-color); }
+.scroll-bar-primary { @include scroll-styles($primary-color, $primary-states-color); }
+.scroll-bar-secondary { @include scroll-styles($secondary-color, $secondary-states-color); }

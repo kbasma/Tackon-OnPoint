@@ -69,6 +69,7 @@
 }
 .form-check input[type="checkbox"]:checked + .form-check-sign::after{
     opacity: 1;
+    background-color: $default-color;
 }
 
 .form-control input[type="checkbox"]:disabled + .form-check-sign::before,

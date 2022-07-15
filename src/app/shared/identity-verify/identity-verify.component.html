@@ -1,0 +1,81 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="">
+              <div class="d-flex justify-content-center bg-primary" style="height: 5rem">
+                <img alt="logo" src="assets/brand/logo/Favicon%20Bright%20Green%20Backer.png"/>
+              </div>
+              <div class="mt-5" style="max-width: 25rem; margin: 0 auto">
+                <ng-container [ngSwitch]="currentStep$ | async">
+                  <!-- Start ownerInfoForm -->
+                  <form [formGroup]="emailVerifyForm" *ngSwitchCase="'emailVerifyForm'" class="card bg-default" style="padding: 1rem">
+                    <div class="card-header text-center">
+                      <h4 class="text-white">Email Identity Verification</h4>
+                      <div class="text-white">Please verify the verification code that was sent to your email</div>
+                    </div>
+                    <div class="mb-3">
+                      <input type="number" class="form-control" placeholder="First Name" formControlName="digit1"
+                             [ngClass]="{'input-error': isFormFieldInvalid('digit1')}"
+                             (focus)="this.emailVerifyForm.controls.digit1.markAsTouched();" (blur)="focus=false">
+                    </div>
+                    <div class="mb-3">
+                      <input type="number" class="form-control" placeholder="Last Name" formControlName="digit2"
+                             [ngClass]="{'input-error': isFormFieldInvalid('digit2')}"
+                             (focus)="this.emailVerifyForm.controls.digit2.markAsTouched();" (blur)="focus=false">
+                    </div>
+                    <div class="mb-3">
+                      <input type="number" class="form-control" placeholder="Email" formControlName="digit3"
+                             [ngClass]="{'input-error': isFormFieldInvalid('digit3')}"
+                             (focus)="this.emailVerifyForm.controls.digit3.markAsTouched();" (blur)="focus=false">
+                    </div>
+                    <div class="mb-3">
+                      <input type="number" class="form-control" placeholder="Mobile Phone" formControlName="digit4"
+                             [ngClass]="{'input-error': isFormFieldInvalid('digit4')}"
+                             (focus)="this.emailVerifyForm.controls.digit4.markAsTouched();" (blur)="focus=false">
+                    </div>
+                    <div class="mb-3">
+                      <input type="number" class="form-control" placeholder="Password" formControlName="digit5"
+                             [ngClass]="{'input-error': isFormFieldInvalid('digit5')}"
+                             (focus)="this.emailVerifyForm.controls.digit5.markAsTouched();" (blur)="focus=false">
+                    </div>
+                    <div class="mb-3">
+                      <input type="number" class="form-control" placeholder="Confirm Password" formControlName="digit6"
+                             [ngClass]="{'input-error': isFormFieldInvalid('digit6')}"
+                             (focus)="this.emailVerifyForm.controls.digit6.markAsTouched();" (blur)="focus=false">
+                    </div>
+                  </form>
+
+                  <!-- End ownerInfoForm -->
+                  <!-- Start businessInfoForm -->
+                  <form *ngSwitchCase="'businessInfoForm'" class="card bg-default" style="padding: 1rem">
+                    <div class="card-header text-center">
+                      <h4 class="text-white">Create an account</h4>
+                      <div class="text-white">Business Information</div>
+                    </div>
+
+                  </form>
+                  <!-- End businessInfoForm -->
+                </ng-container>
+                <div>
+                  <hr class="solid bg-default">
+                </div>
+                <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                  <div>
+                    <button (click)="changeStep(currentStepBs, 'forward')" style="width: 10rem; margin: 0 auto" type="button" class="btn btn-block btn-default mb-2">Continue</button>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <img style="max-width: 8rem" src="assets/brand/logo/Tackon_Full_Color_Logo.png">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+

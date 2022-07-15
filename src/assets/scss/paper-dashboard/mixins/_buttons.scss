@@ -18,6 +18,12 @@
         box-shadow: none !important;
     }
 
+    @if $btn-color == $default-color {
+      &:hover {
+        background-color: $primary-color !important;
+      }
+    }
+
     &:not([data-action]):hover{
         box-shadow:  none;
     }

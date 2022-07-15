@@ -2,47 +2,161 @@
   <main class="main d-flex align-items-center">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 mx-auto">
-          <div class="card mx-4">
-            <div class="card-body p-4">
-              <form>
-                <h1>Register</h1>
-                <p class="text-muted">Create your account</p>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-user"></i></span>
+        <div class="col">
+          <div class="card">
+            <div class="">
+              <div class="d-flex justify-content-center bg-primary" style="height: 5rem">
+                <img alt="logo" src="assets/brand/logo/Favicon%20Bright%20Green%20Backer.png"/>
+              </div>
+              <div class="mt-5" style="max-width: 25rem; margin: 0 auto">
+                <ng-container [ngSwitch]="currentStep$ | async">
+                  <!-- Start ownerInfoForm -->
+                  <form [formGroup]="ownerInfoForm" *ngSwitchCase="'ownerInfoForm'" class="card bg-default" style="padding: 1rem">
+                    <div class="card-header text-center">
+                      <h4 class="text-white">Create an account</h4>
+                      <div class="text-white">Business Owner Information</div>
+                    </div>
+                    <div class="mb-3">
+                      <input type="text" class="form-control" placeholder="First Name" formControlName="fName"
+                             [ngClass]="{'input-error': isFormFieldInvalid('fName')}"
+                             (focus)="this.ownerInfoForm.controls.fName.markAsTouched();" (blur)="focus=false">
+                    </div>
+                    <div class="mb-3">
+                      <input type="text" class="form-control" placeholder="Last Name" formControlName="lName"
+                             [ngClass]="{'input-error': isFormFieldInvalid('lName')}"
+                             (focus)="this.ownerInfoForm.controls.lName.markAsTouched();" (blur)="focus=false">
+                    </div>
+                    <div class="mb-3">
+                      <input type="text" class="form-control" placeholder="Email" formControlName="email"
+                             [ngClass]="{'input-error': isFormFieldInvalid('email')}"
+                             (focus)="this.ownerInfoForm.controls.email.markAsTouched();" (blur)="focus=false">
+                    </div>
+                    <div class="mb-3">
+                      <input type="tel" class="form-control" placeholder="Mobile Phone" formControlName="phone"
+                             [ngClass]="{'input-error': isFormFieldInvalid('phone')}"
+                             (focus)="this.ownerInfoForm.controls.phone.markAsTouched();" (blur)="focus=false">
+                    </div>
+                    <div class="mb-3">
+                      <input type="password" class="form-control" placeholder="Password" formControlName="password"
+                             [ngClass]="{'input-error': isFormFieldInvalid('password')}"
+                             (focus)="this.ownerInfoForm.controls.password.markAsTouched();" (blur)="focus=false">
+                    </div>
+                    <div class="mb-3">
+                      <input type="password" class="form-control" placeholder="Confirm Password" formControlName="confirmPassword"
+                             [ngClass]="{'input-error': isFormFieldInvalid('confirmPassword')}"
+                             (focus)="this.ownerInfoForm.controls.confirmPassword.markAsTouched();" (blur)="focus=false">
+                    </div>
+                  </form>
+                  <!-- End ownerInfoForm -->
+                  <!-- Start businessInfoForm -->
+                  <form [formGroup]="businessInfoForm" *ngSwitchCase="'businessInfoForm'" class="card bg-default" style="padding: 1rem">
+                    <div class="card-header text-center">
+                      <h4 class="text-white">Create an account</h4>
+                      <div class="text-white">Business Information</div>
+                    </div>
+                    <div class="mb-3">
+                      <input type="text" class="form-control" placeholder="Business Name" formControlName="businessName"
+                             [ngClass]="{'input-error': isFormFieldInvalid('businessName')}"
+                             (focus)="this.businessInfoForm.controls.businessName.markAsTouched();" (blur)="focus=false">
+                    </div>
+                    <div class="mb-3">
+                      <input type="text" class="form-control" placeholder="DBA Name" formControlName="dbaName"
+                             [ngClass]="{'input-error': isFormFieldInvalid('dbaName')}"
+                             (focus)="this.businessInfoForm.controls.dbaName.markAsTouched();" (blur)="focus=false">
+                    </div>
+                    <div class="mb-3">
+                      <input type="tel" class="form-control" placeholder="Business Phone" formControlName="businessPhone"
+                             [ngClass]="{'input-error': isFormFieldInvalid('businessPhone')}"
+                             (focus)="this.businessInfoForm.controls.businessPhone.markAsTouched();" (blur)="focus=false">
+                    </div>
+                    <div class="mb-3">
+                      <input type="text" class="form-control" placeholder="Business Website" formControlName="website"
+                             [ngClass]="{'input-error': isFormFieldInvalid('website')}"
+                             (focus)="this.businessInfoForm.controls.website.markAsTouched();" (blur)="focus=false">
+                    </div>
+                    <div class="mb-3">
+                      <select class="custom-select mb-3" formControlName="industry"
+                              [ngClass]="{'input-error': isFormFieldInvalid('industry')}"
+                              (focus)="this.businessInfoForm.controls.industry.markAsTouched();" (blur)="focus=false">
+                        <option *ngFor="let industry of industries"
+                                [ngStyle]="{'display': industry.display}"
+                                [ngValue]="industry.key"
+                                [selected]="industry.selected"
+                                [disabled]="industry.disabled">
+                          {{ industry.key }}
+                        </option>
+                      </select>
+                    </div>
+                  </form>
+                  <!-- End businessInfoForm -->
+                  <!-- Start businessAddressForm -->
+                  <form [formGroup]="businessAddressForm" *ngSwitchCase="'businessAddressForm'" class="card bg-default" style="padding: 1rem">
+                    <div class="card-header text-center">
+                      <h4 class="text-white">Create an account</h4>
+                      <div class="text-white">Business Address</div>
+                    </div>
+                    <div class="mb-3">
+                      <input type="text" class="form-control" placeholder="Business Address" formControlName="businessAddress"
+                             [ngClass]="{'input-error': isFormFieldInvalid('businessAddress')}"
+                             (focus)="this.businessAddressForm.controls.businessAddress.markAsTouched();" (blur)="focus=false">
+                    </div>
+                    <div class="mb-3">
+                      <input type="text" class="form-control" placeholder="Business Address Continued" formControlName="businessAddressContinued"
+                             [ngClass]="{'input-error': isFormFieldInvalid('businessAddressContinued')}"
+                             (focus)="this.businessAddressForm.controls.businessAddressContinued.markAsTouched();" (blur)="focus=false">
+                    </div>
+                    <div class="mb-3">
+                      <input type="text" class="form-control" placeholder="City" formControlName="city"
+                             [ngClass]="{'input-error': isFormFieldInvalid('city')}"
+                             (focus)="this.businessAddressForm.controls.city.markAsTouched();" (blur)="focus=false">
+                    </div>
+                    <div class="mb-3">
+                      <input type="number" class="form-control" placeholder="Zip Code" formControlName="zipCode"
+                             [ngClass]="{'input-error': isFormFieldInvalid('zipCode')}"
+                             (focus)="this.businessAddressForm.controls.zipCode.markAsTouched();" (blur)="focus=false">
+                    </div>
+                    <div class="mb-3">
+                      <select class="custom-select mb-3" formControlName="state"
+                              [ngClass]="{'input-error': isFormFieldInvalid('state')}"
+                              (focus)="this.businessAddressForm.controls.state.markAsTouched();" (blur)="focus=false">
+                        <option *ngFor="let state of states"
+                                [ngStyle]="{'display': state.display}"
+                                [ngValue]="state.value"
+                                [selected]="state.selected"
+                                [disabled]="state.disabled">
+                          {{ state.value }}
+                        </option>
+                      </select>
+                    </div>
+                  </form>
+                  <!-- End businessAddressForm -->
+                  <!-- Start termsConditionsCheckbox -->
+                  <form *ngSwitchCase="'termsConditionsCheckbox'" class="card bg-default" style="padding: 1rem">
+                    <div class="card-header text-center">
+                      <h4 class="text-white">Terms and Conditions</h4>
+                      <div class="text-white">Please read and accept our terms and conditions before continuing.</div>
+                    </div>
+                    <div class="mb-3">
+                      <app-terms-conditions></app-terms-conditions>
+                    </div>
+                  </form>
+                  <!-- End termsConditionsCheckbox -->
+                </ng-container>
+                <div>
+                  <hr class="solid bg-default">
+                </div>
+                <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                  <div>
+                    <button (click)="changeStep(currentStepBs, 'back')" style="width: 10rem; margin: 0 auto" type="button" class="btn btn-block btn-default mb-2">Back</button>
                   </div>
-                  <input type="text" class="form-control" placeholder="Username" autocomplete="username" required>
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">@</span>
+                  <div>
+                    <button (click)="changeStep(currentStepBs, 'forward')" style="width: 10rem; margin: 0 auto" type="button" class="btn btn-block btn-default mb-2">Continue</button>
                   </div>
-                  <input type="text" class="form-control" placeholder="Email" autocomplete="email" required>
+<!--                  <button (submit)="submitForm()" style="width: fit-content; margin: 0 auto" type="button" class="btn btn-block btn-default mb-2">Submit</button>-->
                 </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-lock"></i></span>
-                  </div>
-                  <input type="password" class="form-control" placeholder="Password" autocomplete="new-password" required>
-                </div>
-                <div class="input-group mb-4">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-lock"></i></span>
-                  </div>
-                  <input type="password" class="form-control" placeholder="Repeat password" autocomplete="new-password" required>
-                </div>
-                <button type="button" class="btn btn-block btn-success">Create Account</button>
-              </form>
-            </div>
-            <div class="card-footer p-4">
-              <div class="row">
-                <div class="col-6">
-                  <button class="btn btn-block btn-facebook" type="button"><span>facebook</span></button>
-                </div>
-                <div class="col-6">
-                  <button class="btn btn-block btn-twitter" type="button"><span>twitter</span></button>
-                </div>
+              </div>
+              <div>
+                <img style="max-width: 8rem" src="assets/brand/logo/Tackon_Full_Color_Logo.png">
               </div>
             </div>
           </div>
@@ -51,3 +165,4 @@
     </div>
   </main>
 </div>
+

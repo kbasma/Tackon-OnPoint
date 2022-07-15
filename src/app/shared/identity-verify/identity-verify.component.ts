@@ -3,7 +3,7 @@ import {BehaviorSubject, Observable} from "rxjs";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {confirmedValidator} from "../../core/utils";
 
-type Step = 'emailValidation' | 'phoneValidation' | 'accountCreated';
+type Step = 'emailVerifyForm' | 'phoneVerifyFrom' | 'accountCreatedView';
 
 @Component({
   selector: 'app-identity-verify',
@@ -11,9 +11,10 @@ type Step = 'emailValidation' | 'phoneValidation' | 'accountCreated';
   styleUrls: ['./identity-verify.component.scss']
 })
 export class IdentityVerifyComponent implements OnInit {
+  focus: any;
   public emailVerifyForm: FormGroup;
   public phoneVerifyFrom: FormGroup;
-  public currentStepBs: BehaviorSubject<Step> = new BehaviorSubject<Step>('emailValidation');
+  public currentStepBs: BehaviorSubject<Step> = new BehaviorSubject<Step>('emailVerifyForm');
   public currentStep$: Observable<Step> = this.currentStepBs.asObservable();
 
   constructor(
@@ -28,18 +29,27 @@ export class IdentityVerifyComponent implements OnInit {
 
   changeStep(currentStep: BehaviorSubject<Step>, direction: 'forward') {
     switch(currentStep.getValue()) {
-      case 'emailValidation':
+      case 'emailVerifyForm':
         if (direction === 'forward') {
-          this.currentStepBs.next('phoneValidation');
+          this.currentStepBs.next('phoneVerifyFrom');
         }
         break;
-      case 'phoneValidation':
+      case 'phoneVerifyFrom':
         if (direction === 'forward') {
-          this.currentStepBs.next('accountCreated');
+          this.currentStepBs.next('accountCreatedView');
         }
         break;
-      case 'accountCreated':
+      case 'accountCreatedView':
         break;
+    }
+  }
+
+  resendCode() {
+    const form = this.currentStepBs.getValue().toString();
+    if(form === 'emailVerifyForm') {
+      // TODO: request new email code
+    } else if (form === 'phoneVerifyFrom') {
+      // TODO: request new phone code
     }
   }
 

@@ -111,7 +111,7 @@
                              (focus)="this.businessAddressForm.controls.city.markAsTouched();" (blur)="focus=false">
                     </div>
                     <div class="mb-3">
-                      <input type="number" class="form-control" placeholder="Zip Code" formControlName="zipCode"
+                      <input type="text" class="form-control" placeholder="Zip Code" formControlName="zipCode"
                              [ngClass]="{'input-error': isFormFieldInvalid('zipCode')}"
                              (focus)="this.businessAddressForm.controls.zipCode.markAsTouched();" (blur)="focus=false">
                     </div>

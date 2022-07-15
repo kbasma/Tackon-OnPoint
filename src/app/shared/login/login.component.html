@@ -5,31 +5,32 @@
         <div class="col">
           <div class="card">
             <div class="">
-              <form>
-                <div class="d-flex justify-content-center bg-primary" style="height: 5rem">
-                  <img alt="logo" src="assets/brand/logo/Favicon%20Bright%20Green%20Backer.png"/>
+              <div class="d-flex justify-content-center bg-primary" style="height: 5rem">
+                <img alt="logo" src="assets/brand/logo/Favicon%20Bright%20Green%20Backer.png"/>
+              </div>
+              <div class="mt-5">
+                <form class="card bg-default" style="max-width: 25rem; margin: 0 auto; padding: 1rem">
+<!--                  <div class="card-header text-center">-->
+<!--                    <h4 class="text-white">Login</h4>-->
+<!--                  </div>-->
+                  <div class="mb-3 mt-3">
+                    <input type="text" class="form-control" placeholder="Username" autocomplete="username" required>
+                  </div>
+                  <div class="mb-3">
+                    <input type="password" class="form-control" placeholder="Password" autocomplete="new-password" required>
+                  </div>
+                </form>
+                <div style="max-width: 25rem; margin: 0 auto;">
+                  <hr class="solid bg-default">
                 </div>
-                <div class="mt-5">
-                  <div class="card bg-default" style="max-width: 25rem; margin: 0 auto; padding: 1rem">
-                    <div class="mb-3">
-                      <input type="text" class="form-control" placeholder="Username" autocomplete="username" required>
-                    </div>
-                    <div class="mb-3">
-                      <input type="password" class="form-control" placeholder="Password" autocomplete="new-password" required>
-                    </div>
-                  </div>
-                  <div style="max-width: 25rem; margin: 0 auto;">
-                    <hr class="solid bg-default">
-                  </div>
-                  <div class="text-center">
-                    <button style="width: 10rem; margin: 0 auto" type="button" class="btn btn-block btn-default mb-2">Login</button>
-                    <div class="mb-2"><a [routerLink]="['/reset-password']">Forgot Password</a></div>
-                  </div>
-                  <div>
-                    <img style="max-width: 8rem" src="assets/brand/logo/Tackon_Full_Color_Logo.png">
-                  </div>
+                <div class="text-center">
+                  <button style="width: 10rem; margin: 0 auto" type="button" class="btn btn-block btn-default mb-2">Login</button>
+                  <div class="mb-2"><a [routerLink]="['/reset-password']">Forgot Password</a></div>
                 </div>
-              </form>
+                <div>
+                  <img style="max-width: 8rem" src="assets/brand/logo/Tackon_Full_Color_Logo.png">
+                </div>
+              </div>
             </div>
           </div>
         </div>

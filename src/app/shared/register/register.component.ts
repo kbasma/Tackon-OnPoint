@@ -65,7 +65,7 @@ export class RegisterComponent {
       case 'termsConditionsCheckbox':
         if (direction === 'forward') {
           const queryParams: Params = { id: '123' };
-          return this._router.navigate(['/verify'], {relativeTo: this._activatedRoute, queryParams,
+          return this._router.navigate(['verify'], {relativeTo: this._activatedRoute, queryParams,
             // queryParamsHandling: 'merge', // remove to replace all query params by provided
           });
         } else {

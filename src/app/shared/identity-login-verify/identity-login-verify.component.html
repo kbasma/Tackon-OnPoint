@@ -1,0 +1,155 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="">
+              <div class="d-flex justify-content-center bg-primary" style="height: 5rem">
+                <img alt="logo" src="assets/brand/logo/Favicon%20Bright%20Green%20Backer.png"/>
+              </div>
+              <div class="mt-5" style="max-width: 25rem; margin: 0 auto">
+                <ng-container [ngSwitch]="currentStep$ | async">
+                  <!-- Start optionsForm -->
+                  <form *ngSwitchCase="'optionsForm'" class="card bg-default" style="padding: 1rem">
+                    <div class="card-header text-center">
+                      <h4 class="text-white">Identity Verification</h4>
+                      <div class="text-white">To protect your identity we will send you a code to verify it is really you.</div>
+                    </div>
+                    <div>
+                      <div class="mt-5">
+                        <div class="text-white d-flex align-items-start">
+                          <input style="width: 1rem; display: inline;" type="radio" value="Phone" name="option" [(ngModel)]="verifyType" class="form-control checkbox mt-1">
+                          <div class="ml-3">
+                            <span>Send code via text to:</span>
+                            <div>7708421809</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mt-5 mb-5">
+                        <div class="text-white d-flex align-items-start">
+                          <input style="width: 1rem; display: inline;" type="radio" value="Email" name="option" [(ngModel)]="verifyType" class="form-control checkbox mt-1">
+                          <div class="ml-3">
+                            <span>Send code via email to:</span>
+                            <div>zack@gmail.com</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  <!-- End optionsForm -->
+                  <!-- Start verifyForm -->
+                  <form [formGroup]="verifyForm" *ngSwitchCase="'verifyForm'" class="card bg-default" style="padding: 1rem;">
+                    <div class="card-header text-center">
+                      <h4 class="text-white">{{verifyType}} Identity Verification</h4>
+                      <div class="text-white">Please verify the verification code that was sent to your {{verifyType}}</div>
+                    </div>
+                    <div class="d-flex mt-2 justify-content-center">
+                      <div class="verify-digit">
+                        <input type="text" maxlength="1" class="form-control text-center p-0" style="height: 2rem" formControlName="digit1"
+                               [ngClass]="{'input-error': isFormFieldInvalid('digit1')}"
+                               (focus)="this.verifyForm.controls.digit1.markAsTouched();" (blur)="focus=false">
+                      </div>
+                      <div class="verify-digit">
+                        <input type="text" maxlength="1" class="form-control text-center p-0" style="height: 2rem" formControlName="digit2"
+                               [ngClass]="{'input-error': isFormFieldInvalid('digit2')}"
+                               (focus)="this.verifyForm.controls.digit2.markAsTouched();" (blur)="focus=false">
+                      </div>
+                      <div class="verify-digit">
+                        <input type="text" maxlength="1" class="form-control text-center p-0" style="height: 2rem" formControlName="digit3"
+                               [ngClass]="{'input-error': isFormFieldInvalid('digit3')}"
+                               (focus)="this.verifyForm.controls.digit3.markAsTouched();" (blur)="focus=false">
+                      </div>
+                      <div class="verify-digit">
+                        <input type="text" maxlength="1" class="form-control text-center p-0" style="height: 2rem" formControlName="digit4"
+                               [ngClass]="{'input-error': isFormFieldInvalid('digit4')}"
+                               (focus)="this.verifyForm.controls.digit4.markAsTouched();" (blur)="focus=false">
+                      </div>
+                      <div class="verify-digit">
+                        <input type="text" maxlength="1" class="form-control text-center p-0" style="height: 2rem" formControlName="digit5"
+                               [ngClass]="{'input-error': isFormFieldInvalid('digit5')}"
+                               (focus)="this.verifyForm.controls.digit5.markAsTouched();" (blur)="focus=false">
+                      </div>
+                      <div class="verify-digit">
+                        <input type="text" maxlength="1" class="form-control text-center p-0" style="height: 2rem" formControlName="digit6"
+                               [ngClass]="{'input-error': isFormFieldInvalid('digit6')}"
+                               (focus)="this.verifyForm.controls.digit6.markAsTouched();" (blur)="focus=false">
+                      </div>
+                    </div>
+                  </form>
+                  <!-- End verifyForm -->
+                  <!-- Start loginSuccess -->
+                  <div *ngSwitchCase="'loginSuccess'" class="card bg-default" style="padding: 1rem;">
+                    <div class="card-header text-center">
+                      <h4 class="text-white">Welcome to OnPoint</h4>
+                    </div>
+                  </div>
+                  <!-- End loginSuccess -->
+                </ng-container>
+                <ng-container [ngSwitch]="currentStep$ | async">
+                  <!-- Start optionsForm -->
+                  <div *ngSwitchCase="'optionsForm'">
+                    <hr style="border-radius: 3px; border-top: 5px solid rgba(0, 0, 0, 0.1);" class="solid bg-default">
+                    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                      <div>
+                        <button (click)="changeStep(currentStepBs, 'back')" style="width: 10rem; margin: 0 auto" type="button" class="btn btn-block btn-default mb-2">
+                          Back
+                        </button>
+                      </div>
+                      <div>
+                        <button (click)="changeStep(currentStepBs, 'forward')" style="width: 10rem; margin: 0 auto" type="button" class="btn btn-block btn-default mb-2">
+                          Continue
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Start optionsForm -->
+                  <!-- Start verifyForm -->
+                  <div *ngSwitchCase="'verifyForm'">
+                    <div class="text-center">
+                      <span>Didn't receive a code? </span>
+                      <span class="mb-2"><a href="javascript: void(0)" (click)="resendCode()">Send again</a></span>
+                    </div>
+                    <hr style="border-radius: 3px; border-top: 5px solid rgba(0, 0, 0, 0.1);" class="solid bg-default">
+                    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                      <div>
+                        <button (click)="changeStep(currentStepBs, 'back')" style="width: 10rem; margin: 0 auto" type="button" class="btn btn-block btn-default mb-2">
+                          Back
+                        </button>
+                      </div>
+                      <div>
+                        <button (click)="changeStep(currentStepBs, 'forward')" style="width: 10rem; margin: 0 auto" type="button" class="btn btn-block btn-default mb-2">
+                          Continue
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Start verifyForm -->
+                  <!-- Start loginSuccess -->
+                  <div *ngSwitchCase="'loginSuccess'">
+                    <hr style="border-radius: 3px; border-top: 5px solid rgba(0, 0, 0, 0.1);" class="solid bg-default">
+                    <div class="text-center">
+                      <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+                        <div>
+                          <button style="width: 10rem; margin: 0 auto" type="button" class="btn btn-block btn-default mb-2"
+                                  (click)="goDashboard()">
+                            Dashboard
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Start loginSuccess -->
+                </ng-container>
+              </div>
+              <div>
+                <img style="max-width: 8rem" src="assets/brand/logo/Tackon_Full_Color_Logo.png">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+

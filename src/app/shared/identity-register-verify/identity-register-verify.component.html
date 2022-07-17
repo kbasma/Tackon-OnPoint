@@ -17,33 +17,33 @@
                       <div class="text-white">Please verify the verification code that was sent to your email</div>
                     </div>
                     <div class="d-flex mt-2 justify-content-center">
-                      <div class="verify-digit mb-3">
-                        <input type="text" class="form-control text-center" formControlName="digit1"
+                      <div class="verify-digit">
+                        <input type="text" maxlength="1" class="form-control text-center p-0" style="height: 2rem" formControlName="digit1"
                                [ngClass]="{'input-error': isFormFieldInvalid('digit1')}"
                                (focus)="this.emailVerifyForm.controls.digit1.markAsTouched();" (blur)="focus=false">
                       </div>
-                      <div class="verify-digit mb-3">
-                        <input type="text" class="form-control text-center" formControlName="digit2"
+                      <div class="verify-digit">
+                        <input type="text" maxlength="1" class="form-control text-center p-0" style="height: 2rem" formControlName="digit2"
                                [ngClass]="{'input-error': isFormFieldInvalid('digit2')}"
                                (focus)="this.emailVerifyForm.controls.digit2.markAsTouched();" (blur)="focus=false">
                       </div>
-                      <div class="verify-digit mb-3">
-                        <input type="text" class="form-control text-center" formControlName="digit3"
+                      <div class="verify-digit">
+                        <input type="text" maxlength="1" class="form-control text-center p-0" style="height: 2rem" formControlName="digit3"
                                [ngClass]="{'input-error': isFormFieldInvalid('digit3')}"
                                (focus)="this.emailVerifyForm.controls.digit3.markAsTouched();" (blur)="focus=false">
                       </div>
-                      <div class="verify-digit mb-3">
-                        <input type="text" class="form-control text-center" formControlName="digit4"
+                      <div class="verify-digit">
+                        <input type="text" maxlength="1" class="form-control text-center p-0" style="height: 2rem" formControlName="digit4"
                                [ngClass]="{'input-error': isFormFieldInvalid('digit4')}"
                                (focus)="this.emailVerifyForm.controls.digit4.markAsTouched();" (blur)="focus=false">
                       </div>
-                      <div class="verify-digit mb-3">
-                        <input type="text" class="form-control text-center" formControlName="digit5"
+                      <div class="verify-digit">
+                        <input type="text" maxlength="1" class="form-control text-center p-0" style="height: 2rem" formControlName="digit5"
                                [ngClass]="{'input-error': isFormFieldInvalid('digit5')}"
                                (focus)="this.emailVerifyForm.controls.digit5.markAsTouched();" (blur)="focus=false">
                       </div>
-                      <div class="verify-digit mb-3">
-                        <input type="text" class="form-control text-center" formControlName="digit6"
+                      <div class="verify-digit">
+                        <input type="text" maxlength="1" class="form-control text-center p-0" style="height: 2rem" formControlName="digit6"
                                [ngClass]="{'input-error': isFormFieldInvalid('digit6')}"
                                (focus)="this.emailVerifyForm.controls.digit6.markAsTouched();" (blur)="focus=false">
                       </div>
@@ -57,66 +57,88 @@
                       <div class="text-white">Please verify the verification code that was sent to your phone</div>
                     </div>
                     <div class="d-flex mt-2 justify-content-center">
-                      <div class="verify-digit mb-3">
-                        <input type="text" class="form-control text-center" formControlName="digit1"
+                      <div class="verify-digit">
+                        <input type="text" maxlength="1" class="form-control text-center p-0" style="height: 2rem" formControlName="digit1"
                                [ngClass]="{'input-error': isFormFieldInvalid('digit1')}"
                                (focus)="this.phoneVerifyFrom.controls.digit1.markAsTouched();" (blur)="focus=false">
                       </div>
-                      <div class="verify-digit mb-3">
-                        <input type="text" class="form-control text-center" formControlName="digit2"
+                      <div class="verify-digit">
+                        <input type="text" maxlength="1" class="form-control text-center p-0" style="height: 2rem" formControlName="digit2"
                                [ngClass]="{'input-error': isFormFieldInvalid('digit2')}"
                                (focus)="this.phoneVerifyFrom.controls.digit2.markAsTouched();" (blur)="focus=false">
                       </div>
-                      <div class="verify-digit mb-3">
-                        <input type="text" class="form-control text-center" formControlName="digit3"
+                      <div class="verify-digit">
+                        <input type="text" maxlength="1" class="form-control text-center p-0" style="height: 2rem" formControlName="digit3"
                                [ngClass]="{'input-error': isFormFieldInvalid('digit3')}"
                                (focus)="this.phoneVerifyFrom.controls.digit3.markAsTouched();" (blur)="focus=false">
                       </div>
-                      <div class="verify-digit mb-3">
-                        <input type="text" class="form-control text-center" formControlName="digit4"
+                      <div class="verify-digit">
+                        <input type="text" maxlength="1" class="form-control text-center p-0" style="height: 2rem" formControlName="digit4"
                                [ngClass]="{'input-error': isFormFieldInvalid('digit4')}"
                                (focus)="this.phoneVerifyFrom.controls.digit4.markAsTouched();" (blur)="focus=false">
                       </div>
-                      <div class="verify-digit mb-3">
-                        <input type="text" class="form-control text-center" formControlName="digit5"
+                      <div class="verify-digit">
+                        <input type="text" maxlength="1" class="form-control text-center p-0" style="height: 2rem" formControlName="digit5"
                                [ngClass]="{'input-error': isFormFieldInvalid('digit5')}"
                                (focus)="this.phoneVerifyFrom.controls.digit5.markAsTouched();" (blur)="focus=false">
                       </div>
-                      <div class="verify-digit mb-3">
-                        <input type="text" class="form-control text-center" formControlName="digit6"
+                      <div class="verify-digit">
+                        <input type="text" maxlength="1" class="form-control text-center p-0" style="height: 2rem" formControlName="digit6"
                                [ngClass]="{'input-error': isFormFieldInvalid('digit6')}"
                                (focus)="this.phoneVerifyFrom.controls.digit6.markAsTouched();" (blur)="focus=false">
                       </div>
                     </div>
                   </form>
                   <!-- End phoneVerifyFrom -->
-                  <!-- Start phoneVerifyFrom -->
-                  <div *ngSwitchCase="'accountCreatedView'" class="card bg-default" style="padding: 1rem;">
+                  <!-- Start registerSuccess -->
+                  <div *ngSwitchCase="'registerSuccess'" class="card bg-default" style="padding: 1rem;">
                     <div class="card-header text-center">
                       <h4 class="text-white">Account Created</h4>
                     </div>
                   </div>
-                  <!-- End phoneVerifyFrom -->
+                  <!-- End registerSuccess -->
                 </ng-container>
-                <div *ngIf="currentStepBs.getValue().toString() !== 'accountCreatedView'" class="text-center">
-                  <span>Didn't receive a code? </span>
-                  <span class="mb-2"><a href="javascript: void(0)" (click)="resendCode()">Send again</a></span>
-                </div>
-                <div *ngIf="currentStepBs.getValue().toString() === 'accountCreatedView'" class="text-center">
-                  <span class="mb-2"><a  [routerLink]="['/login']">Login</a></span>
-                </div>
-                <div>
-                  <hr class="solid bg-default">
-                </div>
-                <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
-                  <div>
-                    <button *ngIf="currentStepBs.getValue().toString() !== 'accountCreatedView'"
-                            style="width: 10rem; margin: 0 auto" type="button" class="btn btn-block btn-default mb-2"
-                            (click)="changeStep(currentStepBs, 'forward')">
-                      Continue
-                    </button>
+                <ng-container [ngSwitch]="currentStep$ | async">
+                  <div *ngSwitchCase="'emailVerifyForm'">
+                    <div class="text-center">
+                      <span>Didn't receive a code? </span>
+                      <span class="mb-2"><a href="javascript: void(0)" (click)="resendCode()">Send again</a></span>
+                    </div>
+                    <div>
+                      <hr style="border-radius: 3px; border-top: 5px solid rgba(0, 0, 0, 0.1);" class="solid bg-default">
+                    </div>
+                    <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+                      <div>
+                        <button style="width: 10rem; margin: 0 auto" type="button" class="btn btn-block btn-default mb-2"
+                                (click)="changeStep(currentStepBs, 'forward')">
+                          Continue
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                  <div *ngSwitchCase="'phoneVerifyFrom'">
+                    <div class="text-center">
+                      <span>Didn't receive a code? </span>
+                      <span class="mb-2"><a href="javascript: void(0)" (click)="resendCode()">Send again</a></span>
+                    </div>
+                    <div>
+                      <hr style="border-radius: 3px; border-top: 5px solid rgba(0, 0, 0, 0.1);" class="solid bg-default">
+                    </div>
+                    <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+                      <div>
+                        <button style="width: 10rem; margin: 0 auto" type="button" class="btn btn-block btn-default mb-2"
+                                (click)="changeStep(currentStepBs, 'forward')">
+                          Continue
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngSwitchCase="'registerSuccess'">
+                    <div class="text-center">
+                      <span class="mb-2"><a [routerLink]="['/login']">Login</a></span>
+                    </div>
+                  </div>
+                </ng-container>
               </div>
               <div>
                 <img style="max-width: 8rem" src="assets/brand/logo/Tackon_Full_Color_Logo.png">

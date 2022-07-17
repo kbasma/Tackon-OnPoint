@@ -20,7 +20,10 @@ import {P404Component} from "./shared/error/404.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TermsConditionsComponent} from "./shared/terms-conditons/terms-conditions.component";
 import {ScrollTrackerDirective} from "./core/directives/scroll-tracker.directives";
-import { IdentityVerifyComponent } from './shared/identity-verify/identity-verify.component';
+import { IdentityRegisterVerifyComponent } from './shared/identity-register-verify/identity-register-verify.component';
+import {IdentityLoginVerifyComponent} from "./shared/identity-login-verify/identity-login-verify.component";
+import {PasswordResetComponent} from "./shared/password-reset/password-reset.component";
+import {PasswordForgetComponent} from "./shared/password-forgot/password-forget.component";
 
 
 @NgModule({
@@ -34,7 +37,10 @@ import { IdentityVerifyComponent } from './shared/identity-verify/identity-verif
     P403Component,
     P500Component,
     ScrollTrackerDirective,
-    IdentityVerifyComponent
+    IdentityRegisterVerifyComponent,
+    IdentityLoginVerifyComponent,
+    PasswordResetComponent,
+    PasswordForgetComponent
   ],
   imports: [
     BrowserAnimationsModule,

@@ -6,7 +6,10 @@ import {RegisterComponent} from "./shared/register/register.component";
 import {P500Component} from "./shared/error/500.component";
 import {P403Component} from "./shared/error/403.component";
 import {LoginComponent} from "./shared/login/login.component";
-import {IdentityVerifyComponent} from "./shared/identity-verify/identity-verify.component";
+import {IdentityRegisterVerifyComponent} from "./shared/identity-register-verify/identity-register-verify.component";
+import {IdentityLoginVerifyComponent} from "./shared/identity-login-verify/identity-login-verify.component";
+import {PasswordResetComponent} from "./shared/password-reset/password-reset.component";
+import {PasswordForgetComponent} from "./shared/password-forgot/password-forget.component";
 
 export const AppRoutes: Routes = [
   {
@@ -17,6 +20,14 @@ export const AppRoutes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+    pathMatch: 'full',
+    data: {
+      title: 'Register Page'
+    }
+  },
+  {
+    path: 'register/verify',
+    component: IdentityRegisterVerifyComponent,
     data: {
       title: 'Register Page'
     }
@@ -24,24 +35,32 @@ export const AppRoutes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    pathMatch: 'full',
     data: {
-      title: 'Register Page'
+      title: 'Login Page'
     }
   },
   {
-    path: 'verify',
-    component: IdentityVerifyComponent,
+    path: 'login/verify',
+    component: IdentityLoginVerifyComponent,
     data: {
       title: 'Verify Page'
     }
   },
-  // {
-  //   path: 'reset-password',
-  //   component: ForgotPasswordComponent,
-  //   data: {
-  //     title: 'Forgot Page'
-  //   }
-  // },
+  {
+    path: 'password/forgot',
+    component: PasswordForgetComponent,
+    data: {
+      title: 'Forgot Page'
+    }
+  },
+  {
+    path: 'password/reset',
+    component: PasswordResetComponent,
+    data: {
+      title: 'Reset Page'
+    }
+  },
   {
     path: '',
     component: TextLayoutComponent,

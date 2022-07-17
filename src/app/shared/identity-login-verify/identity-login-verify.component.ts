@@ -2,44 +2,50 @@ import { Component, OnInit } from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {confirmedValidator} from "../../core/utils";
+import {Router} from "@angular/router";
 
-type Step = 'emailVerifyForm' | 'phoneVerifyFrom' | 'accountCreatedView';
+type Step = 'optionsForm' | 'verifyForm' | 'loginSuccess';
 
 @Component({
   selector: 'app-identity-verify',
-  templateUrl: './identity-verify.component.html',
-  styleUrls: ['./identity-verify.component.scss']
+  templateUrl: './identity-login-verify.component.html',
+  styleUrls: ['./identity-login-verify.component.scss']
 })
-export class IdentityVerifyComponent implements OnInit {
+export class IdentityLoginVerifyComponent implements OnInit {
   focus: any;
-  public emailVerifyForm: FormGroup;
-  public phoneVerifyFrom: FormGroup;
-  public currentStepBs: BehaviorSubject<Step> = new BehaviorSubject<Step>('emailVerifyForm');
+  verifyType = 'phone';
+  public optionsForm: FormGroup;
+  public verifyForm: FormGroup;
+  public currentStepBs: BehaviorSubject<Step> = new BehaviorSubject<Step>('optionsForm');
   public currentStep$: Observable<Step> = this.currentStepBs.asObservable();
 
   constructor(
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private _router: Router,
   ) {
-    this.buildEmailVerifyForm();
     this.buildPhoneVerifyForm();
   }
 
   ngOnInit(): void {
   }
 
-  changeStep(currentStep: BehaviorSubject<Step>, direction: 'forward') {
+  changeStep(currentStep: BehaviorSubject<Step>, direction: 'forward' | 'back') {
     switch(currentStep.getValue()) {
-      case 'emailVerifyForm':
+      case 'optionsForm':
         if (direction === 'forward') {
-          this.currentStepBs.next('phoneVerifyFrom');
+          this.currentStepBs.next('verifyForm');
+        } else {
+          return this._router.navigate(['verify']);
         }
         break;
-      case 'phoneVerifyFrom':
+      case 'verifyForm':
         if (direction === 'forward') {
-          this.currentStepBs.next('accountCreatedView');
+          this.currentStepBs.next('loginSuccess');
+        } else {
+          this.currentStepBs.next('optionsForm');
         }
         break;
-      case 'accountCreatedView':
+      case 'loginSuccess':
         break;
     }
   }
@@ -58,19 +64,12 @@ export class IdentityVerifyComponent implements OnInit {
     return this[form].controls[type].touched && this[form].controls[type].invalid;
   }
 
-  buildEmailVerifyForm() {
-    this.emailVerifyForm = this._formBuilder.group({
-      digit1: ['', [ Validators.required, Validators.pattern('^[0-9]*$')]],
-      digit2: ['', [ Validators.required, Validators.pattern('^[0-9]*$')]],
-      digit3: ['', [ Validators.required, Validators.pattern('^[0-9]*$')]],
-      digit4: ['', [ Validators.required, Validators.pattern('^[0-9]*$')]],
-      digit5: ['', [ Validators.required, Validators.pattern('^[0-9]*$')]],
-      digit6: ['', [ Validators.required, Validators.pattern('^[0-9]*$')]]
-    });
+  goDashboard() {
+    return this._router.navigate(['dashboard']);
   }
 
   buildPhoneVerifyForm() {
-    this.phoneVerifyFrom = this._formBuilder.group({
+    this.verifyForm = this._formBuilder.group({
       digit1: ['', [ Validators.required, Validators.pattern('^[0-9]*$')]],
       digit2: ['', [ Validators.required, Validators.pattern('^[0-9]*$')]],
       digit3: ['', [ Validators.required, Validators.pattern('^[0-9]*$')]],
